@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'treant-js/Treant';
-import 'treant-js/Treant.css';
-import 'treant-js/vendor/raphael';
-
 import App from './App';
 import './index.css';
 
@@ -29,6 +25,4 @@ const simple_chart_config = {
 
 
 ReactDOM.render(<App />, document.getElementById("app"));
-var chart = new Treant(simple_chart_config);
-
 

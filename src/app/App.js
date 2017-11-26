@@ -5,7 +5,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div id={"tree-simple"}></div>
+            <div id={"tree-simple"}>Tree Container</div>
         );
     }
 }
