@@ -1,12 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'treant-js';
+import 'treant-js/Treant';
 import 'treant-js/Treant.css';
 import 'treant-js/vendor/raphael';
 
 import App from './App';
 import './index.css';
 
-ReactDOM.render(<App />, document.body);
+
+const simple_chart_config = {
+    chart: {
+        container: "#tree-simple"
+    },
+
+    nodeStructure: {
+        text: { name: "Parent node" },
+        children: [
+            {
+                text: { name: "First child" }
+            },
+            {
+                text: { name: "Second child" }
+            }
+        ]
+    }
+};
+
+
+ReactDOM.render(<App />, document.getElementById("app"));
+var chart = new Treant(simple_chart_config);
+
 
