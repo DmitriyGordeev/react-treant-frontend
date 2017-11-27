@@ -1,95 +1,160 @@
 var chart_config = {
     chart: {
-        container: "#tree-simple",
+        container: "#tree-container",
+        levelSeparation: 45,
+
+        rootOrientation: "NORTH",
+
+        nodeAlign: "BOTTOM",
+
         connectors: {
-            type: 'step'
+            type: "step",
+            style: {
+                "stroke-width": 2
+            }
         },
         node: {
-            HTMLclass: 'nodeExample1'
+            HTMLclass: "big-commpany"
         }
     },
+
     nodeStructure: {
-        text: {
-            name: "Mark Hill",
-            title: "Chief executive officer",
-            contact: "Tel: 01 213 123 134",
-            sort: "HijAcker"
+        text: { name: "CEO" },
+        connectors: {
+            style: {
+                'stroke': '#bbb',
+                'arrow-end': 'oval-wide-long'
+            }
         },
-        // image: "../headshots/2.jpg",
         children: [
             {
-                text:{
-                    name: "Joe Linux",
-                    title: "Chief Technology Officer",
-                },
+                text: { name: "Account" },
                 stackChildren: true,
-                // image: "../headshots/1.jpg",
+                connectors: {
+                    style: {
+                        'stroke': '#8080FF',
+                        'arrow-end': 'block-wide-long'
+                    }
+                },
                 children: [
                     {
-                        text:{
-                            name: "Ron Blomquist",
-                            title: "Chief Information Security Officer"
-                        },
-                        // image: "../headshots/8.jpg"
+                        text: {name: "Receptionist"},
+                        HTMLclass: "reception"
                     },
                     {
-                        text:{
-                            name: "Michael Rubin",
-                            title: "Chief Innovation Officer",
-                            contact: "we@aregreat.com"
-                        },
-                        // image: "../headshots/9.jpg"
+                        text: {name: "Author"}
                     }
                 ]
             },
             {
-                stackChildren: true,
-                text:{
-                    name: "Linda May",
-                    title: "Chief Business Officer",
+                text: { name: "Operation Manager" },
+                connectors: {
+                    style: {
+                        'stroke': '#bbb',
+                        "stroke-dasharray": "- .", //"", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."
+                        'arrow-start': 'classic-wide-long'
+                    }
                 },
-                // image: "../headshots/5.jpg",
                 children: [
                     {
-                        text:{
-                            name: "Alice Lopez",
-                            title: "Chief Communications Officer"
+                        text: {name: "Manager I"},
+                        connectors: {
+                            style: {
+                                stroke: "#00CE67"
+                            }
                         },
-                        // image: "../headshots/7.jpg"
+                        children: [
+                            {
+                                text: {name: "Worker I"}
+                            },
+                            {
+                                pseudo: true,
+                                connectors: {
+                                    style: {
+                                        stroke: "#00CE67"
+                                    }
+                                },
+                                children: [
+                                    {
+                                        text: {name: "Worker II"}
+                                    }
+                                ]
+                            },
+                            {
+                                text: {name: "Worker III"}
+                            }
+                        ]
                     },
                     {
-                        text:{
-                            name: "Mary Johnson",
-                            title: "Chief Brand Officer"
+                        text: {name: "Manager II"},
+                        connectors: {
+                            type: "curve",
+                            style: {
+                                stroke: "#50688D"
+                            }
                         },
-                        // image: "../headshots/4.jpg"
+                        children: [
+                            {
+                                text: {name: "Worker I"}
+                            },
+                            {
+                                text: {name: "Worker II"}
+                            }
+                        ]
                     },
                     {
-                        text:{
-                            name: "Kirk Douglas",
-                            title: "Chief Business Development Officer"
+                        text: {name: "Manager III"},
+                        connectors: {
+                            style: {
+                                'stroke': '#FF5555'
+                            }
                         },
-                        // image: "../headshots/11.jpg"
+                        children: [
+                            {
+                                text: {name: "Worker I"}
+                            },
+                            {
+                                pseudo: true,
+                                connectors: {
+                                    style: {
+                                        'stroke': '#FF5555'
+                                    }
+                                },
+                                children: [
+                                    {
+                                        text: {name: "Worker II"}
+                                    },
+                                    {
+                                        text: {name: "Worker III"}
+                                    }
+                                ]
+                            },
+                            {
+                                text: {name: "Worker IV"}
+                            }
+                        ]
                     }
                 ]
             },
             {
-                text:{
-                    name: "John Green",
-                    title: "Chief accounting officer",
-                    contact: "Tel: 01 213 123 134",
+                text: { name: "Delivery Manager" },
+                stackChildren: true,
+                connectors: {
+                    stackIndent: 30,
+                    style: {
+                        'stroke': '#E3C61A',
+                        'arrow-end': 'block-wide-long'
+                    }
                 },
-                // image: "../headshots/6.jpg",
                 children: [
                     {
-                        text:{
-                            name: "Erica Reel",
-                            title: "Chief Customer Officer"
-                        },
-                        link: {
-                            href: "http://www.google.com"
-                        },
-                        // image: "../headshots/10.jpg"
+                        text: {name: "Driver I"}
+                    },
+                    {
+                        text: {name: "Driver II"}
+                    },
+                    {
+                        text: {name: "Driver III"}
                     }
                 ]
             }
