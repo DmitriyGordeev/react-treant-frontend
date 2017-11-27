@@ -7,4 +7,4 @@ import './index.css';
 import tree from './tree';
 
 ReactDOM.render(<App />, document.getElementById("app"));
-var my_chart = new Treant(tree);
+var chart = new Treant(tree);
