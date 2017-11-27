@@ -23,4 +23,4 @@ const simple_chart_config = {
 };
 
 ReactDOM.render(<App />, document.getElementById("app"));
-
+var my_chart = new Treant(simple_chart_config);
