@@ -3,7 +3,7 @@ var chart_config = {
         container: "#tree-container",
         levelSeparation: 45,
 
-        rootOrientation: "NORTH",
+        rootOrientation: "WEST",
 
         nodeAlign: "BOTTOM",
 
