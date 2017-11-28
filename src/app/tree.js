@@ -1,3 +1,5 @@
+import './tree.css';
+
 var chart_config = {
     chart: {
         container: "#tree-container",
