@@ -1,11 +1,11 @@
-.node { font-size: 11px; }
+.node { font-size: 14px; }
 
 .node.big-commpany {
     cursor: pointer;
     padding: 0 2px;
-    min-width: 60px;
+    min-width: 120px;
     text-align: center;
-    height: 30px;
+    height: 80px;
     border: 2px solid #E8E8E3;
     border-radius: 2px;
     box-shadow: 1px 1px 1px rgba(0,0,0,.5);
@@ -21,3 +21,10 @@
     color: #8B8B8B;
     text-shadow: 1px 1px rgba(0,0,0,.15);
 }
+
+.node-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+

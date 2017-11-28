@@ -69,7 +69,8 @@ var chart_config = {
                 children: [
                 ]
             }
-        ]
+        ],
+        innerHTML: "<p class='node-button'>Whoops!</p>"
     }
 };
 
