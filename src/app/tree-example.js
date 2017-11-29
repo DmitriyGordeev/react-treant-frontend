@@ -2,13 +2,10 @@ var chart_config = {
     chart: {
         container: "#tree-container",
         levelSeparation: 45,
-
         rootOrientation: "WEST",
-
         nodeAlign: "BOTTOM",
-
         connectors: {
-            type: "step",
+            type: "curve",
             style: {
                 "stroke-width": 2
             }
@@ -17,9 +14,11 @@ var chart_config = {
             HTMLclass: "big-commpany"
         }
     },
-
     nodeStructure: {
         text: { name: "CEO" },
+        innerHTML:
+        "<p class='node-name'>Whoops!</p>" +
+        "<i class=\"material-icons node-button\">add</i>",
         connectors: {
             style: {
                 'stroke': '#bbb',
@@ -28,7 +27,10 @@ var chart_config = {
         },
         children: [
             {
-                text: { name: "Account" },
+                text: {
+                    name: "Account with ID",
+                },
+                HTMLid: "MyAwesomeId",
                 stackChildren: true,
                 connectors: {
                     style: {
@@ -43,123 +45,33 @@ var chart_config = {
                     },
                     {
                         text: {name: "Author"}
-                    }
-                ]
-            },
-            {
-                text: { name: "Operation Manager" },
-                connectors: {
-                    style: {
-                        'stroke': '#bbb',
-                        "stroke-dasharray": "- .", //"", "-", ".", "-.", "-..", ". ", "- ", "--", "- .", "--.", "--.."
-                        'arrow-start': 'classic-wide-long'
-                    }
-                },
-                children: [
+                    },
                     {
-                        text: {name: "Manager I"},
-                        connectors: {
-                            style: {
-                                stroke: "#00CE67"
-                            }
-                        },
+                        text: {name: "JohnDoe"},
                         children: [
                             {
-                                text: {name: "Worker I"}
+                                text: {name: "JaneDoe"}
                             },
                             {
-                                pseudo: true,
-                                connectors: {
-                                    style: {
-                                        stroke: "#00CE67"
-                                    }
-                                },
-                                children: [
-                                    {
-                                        text: {name: "Worker II"}
-                                    }
-                                ]
-                            },
-                            {
-                                text: {name: "Worker III"}
+                                text: {name: "SomeBodyImportant"}
                             }
                         ]
                     },
-                    {
-                        text: {name: "Manager II"},
-                        connectors: {
-                            type: "curve",
-                            style: {
-                                stroke: "#50688D"
-                            }
-                        },
-                        children: [
-                            {
-                                text: {name: "Worker I"}
-                            },
-                            {
-                                text: {name: "Worker II"}
-                            }
-                        ]
-                    },
-                    {
-                        text: {name: "Manager III"},
-                        connectors: {
-                            style: {
-                                'stroke': '#FF5555'
-                            }
-                        },
-                        children: [
-                            {
-                                text: {name: "Worker I"}
-                            },
-                            {
-                                pseudo: true,
-                                connectors: {
-                                    style: {
-                                        'stroke': '#FF5555'
-                                    }
-                                },
-                                children: [
-                                    {
-                                        text: {name: "Worker II"}
-                                    },
-                                    {
-                                        text: {name: "Worker III"}
-                                    }
-                                ]
-                            },
-                            {
-                                text: {name: "Worker IV"}
-                            }
-                        ]
-                    }
+
                 ]
             },
             {
-                text: { name: "Delivery Manager" },
+                text: { name: "Developer" },
                 stackChildren: true,
                 connectors: {
-                    stackIndent: 30,
                     style: {
-                        'stroke': '#E3C61A',
+                        'stroke': '#8080FF',
                         'arrow-end': 'block-wide-long'
                     }
                 },
                 children: [
-                    {
-                        text: {name: "Driver I"}
-                    },
-                    {
-                        text: {name: "Driver II"}
-                    },
-                    {
-                        text: {name: "Driver III"}
-                    }
                 ]
             }
-        ]
+        ],
     }
 };
-
-export default chart_config;

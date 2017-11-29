@@ -16,11 +16,9 @@ var chart_config = {
             HTMLclass: "big-commpany"
         }
     },
-
     nodeStructure: {
-        text: { name: "CEO" },
         innerHTML:
-            "<p class='node-name'>Whoops!</p>" +
+            "<p class='node-name'>Start</p>" +
             "<i class=\"material-icons node-button\">add</i>",
         connectors: {
             style: {
@@ -28,54 +26,8 @@ var chart_config = {
                 'arrow-end': 'oval-wide-long'
             }
         },
-        children: [
-            {
-                text: {
-                    name: "Account with ID",
-                },
-                HTMLid: "MyAwesomeId",
-                stackChildren: true,
-                connectors: {
-                    style: {
-                        'stroke': '#8080FF',
-                        'arrow-end': 'block-wide-long'
-                    }
-                },
-                children: [
-                    {
-                        text: {name: "Receptionist"},
-                        HTMLclass: "reception"
-                    },
-                    {
-                        text: {name: "Author"}
-                    },
-                    {
-                        text: {name: "JohnDoe"},
-                        children: [
-                            {
-                                text: {name: "JaneDoe"}
-                            },
-                            {
-                                text: {name: "SomeBodyImportant"}
-                            }
-                        ]
-                    },
-
-                ]
-            },
-            {
-                text: { name: "Developer" },
-                stackChildren: true,
-                connectors: {
-                    style: {
-                        'stroke': '#8080FF',
-                        'arrow-end': 'block-wide-long'
-                    }
-                },
-                children: [
-                ]
-            }
-        ],
+        HTMLid: "",
+        children: [],
     }
 };
 

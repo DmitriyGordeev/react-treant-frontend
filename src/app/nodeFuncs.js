@@ -1,5 +1,5 @@
 export default function nodeClick() {
-    jQuery(".big-commpany").click(function() {
-        alert(jQuery(this).find(".node-name").text());
+    jQuery(".big-commpany .node-button").click(function() {
+
     });
 }
