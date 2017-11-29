@@ -5,6 +5,10 @@ import './App.css';
 
 class App extends React.Component {
 
+    nodeClick() {
+        // call "this.props.onNodeClick()" inside node.onclick = function() {}
+    }
+
     render() {
         return (
             <div id={"tree-container"}></div>
@@ -18,7 +22,7 @@ export default connect(
         storeData: state
     }),
     dispatch => ({
-        onMethod: () => {
+        onNodeCLick: () => {
             dispatch({ type: 'ACTION_TYPE' })
         }
     })
