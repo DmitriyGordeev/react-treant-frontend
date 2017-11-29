@@ -19,6 +19,7 @@ var chart_config = {
 
     nodeStructure: {
         text: { name: "CEO" },
+        innerHTML: "<p class='node-button'>Whoops!</p>",
         connectors: {
             style: {
                 'stroke': '#bbb',
@@ -27,7 +28,10 @@ var chart_config = {
         },
         children: [
             {
-                text: { name: "Account" },
+                text: {
+                    name: "Account with ID",
+                },
+                HTMLid: "MyAwesomeId",
                 stackChildren: true,
                 connectors: {
                     style: {
@@ -70,8 +74,21 @@ var chart_config = {
                 ]
             }
         ],
-        innerHTML: "<p class='node-button'>Whoops!</p>"
+
+
     }
 };
 
-export default chart_config;
+function findNode(chart, id) {
+    alert("Test Find Exported");
+}
+
+function addNode(chart, id) {
+    alert("Test Add Exported");
+}
+
+module.exports = {
+    findNode: findNode,
+    addNode: addNode,
+    chart: chart_config
+};
