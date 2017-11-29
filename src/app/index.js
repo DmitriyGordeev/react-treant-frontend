@@ -8,6 +8,6 @@ import tree from './tree';
 import nodeF from './nodeFuncs';
 
 ReactDOM.render(<App />, document.getElementById("app"));
-var chart = new Treant(tree.chart);
+var chart = new Treant(tree.treeData);
 
 nodeF();

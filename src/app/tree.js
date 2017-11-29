@@ -26,21 +26,19 @@ var chart_config = {
                 'arrow-end': 'oval-wide-long'
             }
         },
-        HTMLid: "",
+        HTMLid: "0",
         children: [],
     }
 };
 
-function findNode(chart, id) {
-    alert("Test Find Exported");
-}
+var TreeContent = {
+    findNode: function() {
 
-function addNode(chart, id) {
-    alert("Test Add Exported");
-}
+    },
+    addNode:  function(parent_id) {
 
-module.exports = {
-    findNode: findNode,
-    addNode: addNode,
-    chart: chart_config
+    },
+    treeData: chart_config
 };
+
+export default TreeContent;

@@ -5,3 +5,4 @@ build/
 assets/
 !src/assets/
 src/assets/treant-js/examples/
+tree-boilerplate.js
