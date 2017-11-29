@@ -71,7 +71,11 @@ function find_recursive(element, value) {
     return null;
 }
 
-var searched = find_recursive(object, "D");
+function find(value) {
+    return find_recursive(object, value);
+}
+
+var searched = find("D");
 searched.massive.push({
     name: "L",
     massive: []

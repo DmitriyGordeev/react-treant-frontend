@@ -32,11 +32,38 @@ var chart_config = {
 };
 
 var TreeContent = {
-    findNode: function() {
 
+    find_recursive(entry, element_id) {
+        if(entry.name === value) {
+            return entry;
+        }
+
+        for(var i = 0; i < entry.massive.length; i++) {
+            var found = find_recursive(entry.massive[i], element_id);
+            if(found != null) {
+                if (found.name === element_id) {
+                    return found;
+                }
+            }
+        }
+
+        return null;
     },
-    addNode:  function(parent_id) {
+    findNode: function(element_id) {
+        return find_recursive(chart_config, element_id);
+    },
+    addNode:  function(parent_id, nodeObject) {
+        if(nodeObject == null) {
+            return null;
+        }
 
+        var parentObject = findNode(parent_id);
+        if(parentObject == null) {
+            return null;
+        }
+
+        parentObject.children.push(nodeObject);
+        return nodeObject;
     },
     treeData: chart_config
 };
