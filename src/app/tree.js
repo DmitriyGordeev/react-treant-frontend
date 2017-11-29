@@ -1,35 +1,5 @@
 import './tree.css';
-
-var chart_config = {
-    chart: {
-        container: "#tree-container",
-        levelSeparation: 45,
-        rootOrientation: "WEST",
-        nodeAlign: "BOTTOM",
-        connectors: {
-            type: "curve",
-            style: {
-                "stroke-width": 2
-            }
-        },
-        node: {
-            HTMLclass: "big-commpany"
-        }
-    },
-    nodeStructure: {
-        HTMLid: "0",
-        innerHTML:
-            "<p class='node-name'>Start</p>" +
-            "<i class=\"material-icons node-button\">add</i>",
-        connectors: {
-            style: {
-                'stroke': '#bbb',
-                'arrow-end': 'oval-wide-long'
-            }
-        },
-        children: [],
-    }
-};
+import ReduxState from './reduxState';
 
 var TreeContent = {
 
@@ -50,7 +20,7 @@ var TreeContent = {
         return null;
     },
     findNode: function(element_id) {
-        return this.find_recursive(chart_config.nodeStructure, element_id);
+        return this.find_recursive(this.treeData.nodeStructure, element_id);
     },
     addNode:  function(parent_id, nodeObject) {
         if(nodeObject == null) {
@@ -67,7 +37,7 @@ var TreeContent = {
         this.size++;
         return nodeObject;
     },
-    treeData: chart_config,
+    treeData: ReduxState.treeData,
     size: 1
 };
 
