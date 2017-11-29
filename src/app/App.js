@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './App.css';
 
 class App extends React.Component {
@@ -10,4 +12,15 @@ class App extends React.Component {
     }
 }
 
-export default App;
+
+export default connect(
+    state => ({
+        storeData: state
+    }),
+    dispatch => ({
+        onMethod: () => {
+            dispatch({ type: 'ACTION_TYPE' })
+        }
+    })
+)(App);
+

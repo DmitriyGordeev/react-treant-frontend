@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
 import App from './App';
 import './index.css';
 
 import tree from './tree';
 import nodeF from './nodeFuncs';
 
-ReactDOM.render(<App />, document.getElementById("app"));
-var chart = new Treant(tree.treeData);
 
-nodeF();
+function reducer(state = [], action) {
+    return state;
+}
+
+const store = createStore(reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+
+var root = document.getElementById('app');
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    root);
+
+var chart = new Treant(tree.treeData);
