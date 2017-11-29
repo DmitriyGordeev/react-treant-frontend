@@ -19,7 +19,9 @@ var chart_config = {
 
     nodeStructure: {
         text: { name: "CEO" },
-        innerHTML: "<p class='node-button'>Whoops!</p>",
+        innerHTML:
+            "<p class='node-name'>Whoops!</p>" +
+            "<i class=\"material-icons node-button\">add</i>",
         connectors: {
             style: {
                 'stroke': '#bbb',
@@ -74,8 +76,6 @@ var chart_config = {
                 ]
             }
         ],
-
-
     }
 };
 
