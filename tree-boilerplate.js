@@ -59,12 +59,24 @@ function find_recursive(element, value) {
         return element;
     }
 
-    for(var e in element.massive) {
-        return find_recursive(e, value);
+    for(var i = 0; i < element.massive.length; i++) {
+        var found = find_recursive(element.massive[i], value);
+        if(found != null) {
+            if (found.name === value) {
+                return found;
+            }
+        }
     }
+
+    return null;
 }
 
-var searched = find_recursive(object, "F");
-console.log(searched);
+var searched = find_recursive(object, "D");
+searched.massive.push({
+    name: "L",
+    massive: []
+});
+
+console.log(object);
 
 // console.log(object.massive.find(function(element, index, array) { return (element.name === "E"); }));
