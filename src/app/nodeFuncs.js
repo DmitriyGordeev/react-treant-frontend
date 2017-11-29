@@ -25,9 +25,11 @@
 // }
 
 import tree from './tree';
-import ReduxState from './reduxState';
+import ReduxStore from './reduxStore';
+
 
 function onNodeClickEvent() {
+
     var nodeObject = {
         HTMLid: "0",
         innerHTML:
@@ -42,14 +44,12 @@ function onNodeClickEvent() {
         children: []
     };
     tree.treeData.nodeStructure.children.push(nodeObject);
-    console.log("redux state:", ReduxState.treeData.nodeStructure.children.length);
 }
 
-export default function onNodeClick() {
+function onNodeClick() {
 
     var nodes = document.querySelectorAll(".big-commpany");
     nodes.forEach(function(item, i, arr) {
         item.onclick = onNodeClickEvent;
     });
-
 }

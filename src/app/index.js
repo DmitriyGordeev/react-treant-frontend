@@ -8,11 +8,11 @@ import App from './App';
 import './index.css';
 
 import tree from './tree';
-import ReduxState from './reduxState';
+import ReduxStore from './reduxStore';
 import nodeF from './nodeFuncs';
 
 
-function reducer(state = ReduxState, action) {
+function reducer(state = ReduxStore, action) {
     return state;
 }
 

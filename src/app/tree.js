@@ -1,5 +1,5 @@
 import './tree.css';
-import ReduxState from './reduxState';
+import ReduxStore from './reduxStore';
 
 var TreeContent = {
 
@@ -37,7 +37,7 @@ var TreeContent = {
         this.size++;
         return nodeObject;
     },
-    treeData: ReduxState.treeData,
+    treeData: ReduxStore.treeData,
     size: 1
 };
 
