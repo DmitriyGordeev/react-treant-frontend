@@ -27,3 +27,4 @@ ReactDOM.render(
     root);
 
 var chart = new Treant(tree.treeData);
+nodeF();
