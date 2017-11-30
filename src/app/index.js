@@ -9,8 +9,6 @@ import './index.css';
 
 import tree from './tree';
 import ReduxStore from './reduxStore';
-import nodeF from './nodeFuncs';
-
 
 /* --------------------------------------------- */
 

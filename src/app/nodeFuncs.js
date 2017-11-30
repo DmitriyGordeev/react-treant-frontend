@@ -36,21 +36,3 @@ function fireEvent() {
 function assignEvent() {
     document.body.onclick = fireEvent;
 }
-
-export default function someAction() {
-    return (dispatch, getState) => {
-        const state = getState();
-        dispatch(assignEvent()) //dispatch actions here
-    };
-}
-
-
-
-
-// module.exports = function (dispatch) {
-//     return {
-//         someFunction () {
-//             dispatch(setSomething());
-//         }
-//     }
-// };
