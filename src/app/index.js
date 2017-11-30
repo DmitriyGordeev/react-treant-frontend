@@ -6,25 +6,10 @@ import { createStore } from 'redux';
 
 import App from './App';
 import './index.css';
+import './tree.css';
 
-import tree from './tree';
+import treantNodeEvents from './treantNodeEvents';
 import ReduxStore from './reduxStore';
-
-/* --------------------------------------------- */
-
-function hasClass(elem, className) {
-    return elem.className.toString().split(' ').indexOf(className) > -1;
-}
-
-document.addEventListener('click', function (e) {
-
-    if(e.target !== null) {
-        if (hasClass(e.target, 'big-commpany')) {
-            console.log("big-commpany have been clicked!");
-        }
-    }
-
-}, false);
 
 /* --------------------------------------------- */
 
@@ -40,7 +25,13 @@ function updateTreant() {
 
 function reducer(state = ReduxStore, action) {
     updateTreant();
-    console.log("reducer fired!");
+
+    if(action.type === 'NODE_CLICK') {
+        console.log("big-commpany have been clicked!");
+    }
+
+
+
     return state;
 }
 

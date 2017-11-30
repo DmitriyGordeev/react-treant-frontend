@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import './App.css';
 
 
-class App extends React.Component {
+function hasClass(elem, className) {
+    return elem.className.toString().split(' ').indexOf(className) > -1;
+}
 
-    constructor() {
-        super();
-    }
+class App extends React.Component {
 
     onNodeClickEvent() {
 
@@ -30,18 +30,18 @@ class App extends React.Component {
         console.log(this.props.storeData.treeData.nodeStructure.children.length);
     }
 
-    onNodeClick() {
-
-        var nodes = document.querySelectorAll(".big-commpany");
-        nodes.forEach(function(item, i, arr) {
-            item.onclick = this.onNodeClickEvent;
-        });
+    onTreeContainerClick(event) {
+        if(event.target !== null) {
+            if (hasClass(event.target, 'big-commpany')) {
+                this.props.onNodeClickDispatcher();
+            }
+        }
     }
 
 
     render() {
         return (
-            <div id={"tree-container"}></div>
+            <div id={"tree-container"} onClick={this.onTreeContainerClick}> </div>
         );
     }
 }
@@ -53,7 +53,7 @@ export default connect(
     }),
     dispatch => ({
         onNodeClickDispatcher: () => {
-            dispatch({ type: 'ACTION_TYPE' })
+            dispatch({ type: 'NODE_CLICK' })
         }
     })
 )(App);
