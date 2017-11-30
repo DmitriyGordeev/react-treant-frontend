@@ -24,14 +24,13 @@ function updateTreant() {
 }
 
 function reducer(state = ReduxStore, action) {
-    updateTreant();
 
     if(action.type === 'NODE_CLICK') {
         console.log("big-commpany have been clicked!");
     }
 
 
-
+    updateTreant();
     return state;
 }
 
