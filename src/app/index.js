@@ -12,6 +12,22 @@ import ReduxStore from './reduxStore';
 
 /* --------------------------------------------- */
 
+function hasClass(elem, className) {
+    return elem.className.toString().split(' ').indexOf(className) > -1;
+}
+
+document.addEventListener('click', function (e) {
+
+    if(e.target !== null) {
+        if (hasClass(e.target, 'big-commpany')) {
+            console.log("big-commpany have been clicked!");
+        }
+    }
+
+}, false);
+
+/* --------------------------------------------- */
+
 function updateTreant() {
 
     var treantContainerSelector = ReduxStore.treeData.chart.container;
@@ -39,5 +55,4 @@ ReactDOM.render(
     </Provider>,
     root);
 
-nodeF();
 updateTreant();

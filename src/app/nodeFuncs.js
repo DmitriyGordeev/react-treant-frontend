@@ -28,11 +28,3 @@ function onNodeClick() {
         item.onclick = onNodeClickEvent;
     });
 }*/
-
-function fireEvent() {
-    alert("Clicked and dispatchin!");
-}
-
-function assignEvent() {
-    document.body.onclick = fireEvent;
-}
