@@ -28,6 +28,7 @@ class App extends React.Component {
         };
         this.props.storeData.treeData.nodeStructure.children.push(nodeObject);
         this.props.onNodeClickDispatcher();
+        console.log(this.props.storeData.treeData.nodeStructure.children.length);
     }
 
     onNodeClick() {
