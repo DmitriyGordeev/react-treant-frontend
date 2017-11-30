@@ -41,7 +41,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div id={"tree-container"} onClick={this.onTreeContainerClick}> </div>
+            <div id={"tree-container"} onClick={this.onTreeContainerClick.bind(this)}> </div>
         );
     }
 }
