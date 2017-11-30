@@ -39,9 +39,13 @@ class App extends React.Component {
         });
     }
 
+    onSomeEvent() {
+        this.props.onNodeClickDispatcher();
+    }
+
     render() {
         return (
-            <div id={"tree-container"}></div>
+            <div id={"tree-container"} onClick={this.onSomeEvent.bind(this)}></div>
         );
     }
 }

@@ -10,8 +10,19 @@ import './index.css';
 import tree from './tree';
 import ReduxStore from './reduxStore';
 
+function updateTreant() {
+
+    var treantContainerSelector = ReduxStore.treeData.chart.container;
+    var treantContainer = document.querySelector(treantContainerSelector);
+
+    if(treantContainer != null) {
+        new Treant(ReduxStore.treeData);
+    }
+}
 
 function reducer(state = ReduxStore, action) {
+    updateTreant();
+    console.log("reducer fired!");
     return state;
 }
 
@@ -26,4 +37,4 @@ ReactDOM.render(
     </Provider>,
     root);
 
-var chart = new Treant(ReduxStore.treeData);
+updateTreant();
