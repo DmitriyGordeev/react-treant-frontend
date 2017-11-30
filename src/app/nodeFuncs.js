@@ -1,3 +1,4 @@
+/*
 import tree from './tree';
 import ReduxStore from './reduxStore';
 
@@ -26,4 +27,19 @@ function onNodeClick() {
     nodes.forEach(function(item, i, arr) {
         item.onclick = onNodeClickEvent;
     });
+}*/
+
+function nodeClickEvent() {
+    alert("Action");
+}
+
+function assignClickEvents() {
+
+}
+
+export function someAction() {
+    return (dispatch, getState) => {
+        const state = getState();
+        dispatch(nodeClickEvent()) //dispatch actions here
+    };
 }
