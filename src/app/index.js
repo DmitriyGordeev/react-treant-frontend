@@ -10,6 +10,7 @@ import './index.css';
 import tree from './tree';
 import ReduxStore from './reduxStore';
 
+
 function reducer(state = ReduxStore, action) {
     return state;
 }
