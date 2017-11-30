@@ -9,6 +9,10 @@ import './index.css';
 
 import tree from './tree';
 import ReduxStore from './reduxStore';
+import nodeF from './nodeFuncs';
+
+
+/* --------------------------------------------- */
 
 function updateTreant() {
 
@@ -37,4 +41,5 @@ ReactDOM.render(
     </Provider>,
     root);
 
+nodeF();
 updateTreant();

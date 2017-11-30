@@ -29,17 +29,28 @@ function onNodeClick() {
     });
 }*/
 
-function nodeClickEvent() {
-    alert("Action");
+function fireEvent() {
+    alert("Clicked and dispatchin!");
 }
 
-function assignClickEvents() {
-
+function assignEvent() {
+    document.body.onclick = fireEvent;
 }
 
-export function someAction() {
+export default function someAction() {
     return (dispatch, getState) => {
         const state = getState();
-        dispatch(nodeClickEvent()) //dispatch actions here
+        dispatch(assignEvent()) //dispatch actions here
     };
 }
+
+
+
+
+// module.exports = function (dispatch) {
+//     return {
+//         someFunction () {
+//             dispatch(setSomething());
+//         }
+//     }
+// };
