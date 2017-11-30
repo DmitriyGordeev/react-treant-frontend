@@ -9,7 +9,6 @@ import './index.css';
 
 import tree from './tree';
 import ReduxStore from './reduxStore';
-import nodeF from './nodeFuncs';
 
 
 function reducer(state = ReduxStore, action) {
@@ -28,4 +27,3 @@ ReactDOM.render(
     root);
 
 var chart = new Treant(tree.treeData);
-nodeF();
