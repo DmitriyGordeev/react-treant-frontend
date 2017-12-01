@@ -12,11 +12,13 @@ import ReduxStore from './reduxStore';
 
 /* --------------------------------------------- */
 
-function cleanTreeViewport() {
-    var treeContainer = document.getElementById('tree-container');
-
-
-    console.log(nodes.length);
+function cleanTreeViewport(treantContainer) {
+    if(treantContainer != null) {
+        var treantNodes = treantContainer.querySelectorAll(".big-commpany");
+        for(var i = 0; i < treantNodes.length; i++) {
+            treantNodes[i].remove();
+        }
+    }
 }
 
 function updateTreant(state) {
@@ -25,8 +27,11 @@ function updateTreant(state) {
     var treantContainer = document.querySelector(treantContainerSelector);
 
     if(treantContainer != null) {
+        cleanTreeViewport(treantContainer);
         new Treant(state.treeData);
     }
+
+
 }
 
 function reducer(state = ReduxStore, action) {
@@ -52,8 +57,6 @@ function reducer(state = ReduxStore, action) {
 
         // nodeStructure -> appropriate child:
         newState.treeData.nodeStructure.children.push(nodeObject);
-
-        console.log("nodeRoot: ", newState.treeData.nodeStructure);
         updateTreant(newState);
         return newState;
     }
@@ -74,4 +77,3 @@ ReactDOM.render(
     root);
 
 updateTreant(ReduxStore);
-cleanTreeViewport();
