@@ -9,6 +9,7 @@ import './index.css';
 import './tree.css';
 
 import ReduxStore from './reduxStore';
+import TreeTraverse from './tree';
 
 /* --------------------------------------------- */
 
@@ -38,12 +39,9 @@ function updateTreant(state) {
 function reducer(state = ReduxStore, action) {
 
     if(action.type === 'NODE_CLICK') {
-        console.log("clicked_node_id: ", action.nodeId);
-
         var newState = state;
         newState.nodeCounter++;
 
-        console.log("nodeCounter: ", newState.nodeCounter);
         var nodeObject = {
             HTMLid: newState.nodeCounter.toString(),
             innerHTML:
@@ -57,8 +55,6 @@ function reducer(state = ReduxStore, action) {
             },
             children: []
         };
-
-
 
         // nodeStructure -> appropriate child:
         newState.treeData.nodeStructure.children.push(nodeObject);

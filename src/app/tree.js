@@ -1,9 +1,9 @@
 import './tree.css';
 import ReduxStore from './reduxStore';
 
-var TreeContent = {
+class TreeTraverse  {
 
-    find_recursive(entry, element_id) {
+    static find_recursive(entry, element_id) {
         if(entry.name === element_id) {
             return entry;
         }
@@ -18,27 +18,26 @@ var TreeContent = {
         }
 
         return null;
-    },
-    findNode: function(element_id) {
-        return this.find_recursive(this.treeData.nodeStructure, element_id);
-    },
-    addNode:  function(parent_id, nodeObject) {
+    }
+
+    static findNode(tree, element_id) {
+        return this.find_recursive(tree.nodeStructure, element_id);
+    }
+
+    static addNode(tree, parent_id, nodeObject, nodeId) {
         if(nodeObject == null) {
             return null;
         }
 
-        var parentObject = this.findNode(parent_id);
+        var parentObject = this.findNode(tree, parent_id);
         if(parentObject == null) {
             return null;
         }
 
-        nodeObject.HTMLid = size.toString();
+        nodeObject.HTMLid = nodeId;
         parentObject.children.push(nodeObject);
-        this.size++;
         return nodeObject;
-    },
-    treeData: ReduxStore.treeData,
-    size: 1
-};
+    }
+}
 
-export default TreeContent;
+export default TreeTraverse;
