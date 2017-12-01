@@ -28,7 +28,8 @@ var state = {
             },
             children: [],
         }
-    }
+    },
+    treantInstance: null
 
 
 

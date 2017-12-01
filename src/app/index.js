@@ -8,7 +8,6 @@ import App from './App';
 import './index.css';
 import './tree.css';
 
-import treantNodeEvents from './treantNodeEvents';
 import ReduxStore from './reduxStore';
 
 /* --------------------------------------------- */
@@ -19,7 +18,12 @@ function updateTreant(state) {
     var treantContainer = document.querySelector(treantContainerSelector);
 
     if(treantContainer != null) {
-        new Treant(state.treeData);
+        if(state.treantInstance === null) {
+            state.treantInstance = new Treant(state.treeData);
+        }
+        else {
+            // state.treantInstance.tr
+        }
     }
 }
 
