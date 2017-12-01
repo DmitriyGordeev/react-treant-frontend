@@ -28,7 +28,6 @@ function reducer(state = ReduxStore, action) {
     if(action.type === 'NODE_CLICK') {
         console.log("big-commpany have been clicked!");
 
-
         var nodeObject = {
             HTMLid: "0",
             innerHTML:
@@ -46,7 +45,9 @@ function reducer(state = ReduxStore, action) {
         var newState = state;
 
         // nodeStructure -> appropriate child:
-        state.treeData.nodeStructure.children.push(nodeObject);
+        newState.treeData.nodeStructure.children.push(nodeObject);
+
+        console.log("nodeRoot: ", newState.treeData.nodeStructure);
         updateTreant(newState);
         return newState;
     }
