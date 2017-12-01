@@ -12,9 +12,9 @@ import ReduxStore from './reduxStore';
 
 /* --------------------------------------------- */
 
-function cleanTreeViewport(treantContainer) {
+function cleanTreeViewport(treantContainer, nodeHtmlClass) {
     if(treantContainer != null) {
-        var treantNodes = treantContainer.querySelectorAll(".big-commpany");
+        var treantNodes = treantContainer.querySelectorAll("." + nodeHtmlClass);
         for(var i = 0; i < treantNodes.length; i++) {
             treantNodes[i].remove();
         }
@@ -24,10 +24,11 @@ function cleanTreeViewport(treantContainer) {
 function updateTreant(state) {
 
     var treantContainerSelector = state.treeData.chart.container;
+    var treantNodeClass = state.treeData.chart.node.HTMLclass;
     var treantContainer = document.querySelector(treantContainerSelector);
 
     if(treantContainer != null) {
-        cleanTreeViewport(treantContainer);
+        cleanTreeViewport(treantContainer, treantNodeClass);
         new Treant(state.treeData);
     }
 
