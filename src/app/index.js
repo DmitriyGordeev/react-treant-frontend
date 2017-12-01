@@ -12,18 +12,20 @@ import ReduxStore from './reduxStore';
 
 /* --------------------------------------------- */
 
+function cleanTreeViewport() {
+    var treeContainer = document.getElementById('tree-container');
+
+
+    console.log(nodes.length);
+}
+
 function updateTreant(state) {
 
     var treantContainerSelector = state.treeData.chart.container;
     var treantContainer = document.querySelector(treantContainerSelector);
 
     if(treantContainer != null) {
-        if(state.treantInstance === null) {
-            state.treantInstance = new Treant(state.treeData);
-        }
-        else {
-            // state.treantInstance.tr
-        }
+        new Treant(state.treeData);
     }
 }
 
@@ -72,3 +74,4 @@ ReactDOM.render(
     root);
 
 updateTreant(ReduxStore);
+cleanTreeViewport();
