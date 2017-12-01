@@ -57,7 +57,11 @@ function reducer(state = ReduxStore, action) {
         };
 
         // nodeStructure -> appropriate child:
-        newState.treeData.nodeStructure.children.push(nodeObject);
+        // newState.treeData.nodeStructure.children.push(nodeObject);
+
+        console.log("action.nodeId: ", action.nodeId);
+        TreeTraverse.addNode(newState.treeData, action.nodeId, nodeObject);
+
         updateTreant(newState);
         return newState;
     }

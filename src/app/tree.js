@@ -4,14 +4,14 @@ import ReduxStore from './reduxStore';
 class TreeTraverse  {
 
     static find_recursive(entry, element_id) {
-        if(entry.name === element_id) {
+        if(entry.HTMLid === element_id) {
             return entry;
         }
 
         for(var i = 0; i < entry.children.length; i++) {
-            var found = find_recursive(entry.children[i], element_id);
+            var found = TreeTraverse.find_recursive(entry.children[i], element_id);
             if(found != null) {
-                if (found.name === element_id) {
+                if (found.HTMLid === element_id) {
                     return found;
                 }
             }
@@ -21,20 +21,23 @@ class TreeTraverse  {
     }
 
     static findNode(tree, element_id) {
-        return this.find_recursive(tree.nodeStructure, element_id);
+        return TreeTraverse.find_recursive(tree.nodeStructure, element_id);
     }
 
-    static addNode(tree, parent_id, nodeObject, nodeId) {
+    static addNode(tree, parent_id, nodeObject) {
         if(nodeObject == null) {
             return null;
         }
 
-        var parentObject = this.findNode(tree, parent_id);
+
+        var parentObject = TreeTraverse.findNode(tree, parent_id);
+        console.log("addNode() : parent_id = ", parent_id);
+        console.log("addNode() : parentObject = ", parentObject);
         if(parentObject == null) {
             return null;
         }
 
-        nodeObject.HTMLid = nodeId;
+
         parentObject.children.push(nodeObject);
         return nodeObject;
     }
