@@ -13,13 +13,13 @@ import ReduxStore from './reduxStore';
 
 /* --------------------------------------------- */
 
-function updateTreant() {
+function updateTreant(state) {
 
-    var treantContainerSelector = ReduxStore.treeData.chart.container;
+    var treantContainerSelector = state.treeData.chart.container;
     var treantContainer = document.querySelector(treantContainerSelector);
 
     if(treantContainer != null) {
-        new Treant(ReduxStore.treeData);
+        new Treant(state.treeData);
     }
 }
 
@@ -27,10 +27,31 @@ function reducer(state = ReduxStore, action) {
 
     if(action.type === 'NODE_CLICK') {
         console.log("big-commpany have been clicked!");
+
+
+        var nodeObject = {
+            HTMLid: "0",
+            innerHTML:
+            "<p class='node-name'>Start</p>" +
+            "<i class=\"material-icons node-button\">add</i>",
+            connectors: {
+                style: {
+                    'stroke': '#bbb',
+                    'arrow-end': 'oval-wide-long'
+                }
+            },
+            children: []
+        };
+
+        var newState = state;
+
+        // nodeStructure -> appropriate child:
+        state.treeData.nodeStructure.children.push(nodeObject);
+        updateTreant(newState);
+        return newState;
     }
 
-
-    updateTreant();
+    updateTreant(state);
     return state;
 }
 
@@ -45,4 +66,4 @@ ReactDOM.render(
     </Provider>,
     root);
 
-updateTreant();
+updateTreant(ReduxStore);
