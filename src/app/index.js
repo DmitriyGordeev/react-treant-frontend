@@ -38,10 +38,14 @@ function updateTreant(state) {
 function reducer(state = ReduxStore, action) {
 
     if(action.type === 'NODE_CLICK') {
-        console.log("big-commpany have been clicked!");
+        console.log("clicked_node_id: ", action.nodeId);
 
+        var newState = state;
+        newState.nodeCounter++;
+
+        console.log("nodeCounter: ", newState.nodeCounter);
         var nodeObject = {
-            HTMLid: "0",
+            HTMLid: newState.nodeCounter.toString(),
             innerHTML:
             "<p class='node-name'>Start</p>" +
             "<i class=\"material-icons node-button\">add</i>",
@@ -54,7 +58,7 @@ function reducer(state = ReduxStore, action) {
             children: []
         };
 
-        var newState = state;
+
 
         // nodeStructure -> appropriate child:
         newState.treeData.nodeStructure.children.push(nodeObject);

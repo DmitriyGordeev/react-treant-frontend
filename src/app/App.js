@@ -10,30 +10,11 @@ function hasClass(elem, className) {
 
 class App extends React.Component {
 
-    onNodeClickEvent() {
-
-        var nodeObject = {
-            HTMLid: "0",
-            innerHTML:
-            "<p class='node-name'>Start</p>" +
-            "<i class=\"material-icons node-button\">add</i>",
-            connectors: {
-                style: {
-                    'stroke': '#bbb',
-                    'arrow-end': 'oval-wide-long'
-                }
-            },
-            children: []
-        };
-        this.props.storeData.treeData.nodeStructure.children.push(nodeObject);
-        this.props.onNodeClickDispatcher();
-        console.log(this.props.storeData.treeData.nodeStructure.children.length);
-    }
-
     onTreeContainerClick(event) {
         if(event.target !== null) {
             if (hasClass(event.target, 'big-commpany')) {
-                this.props.onNodeClickDispatcher();
+                var nodeId = event.target.getAttribute("id");
+                this.props.onNodeClickDispatcher(nodeId);
             }
         }
     }
@@ -52,8 +33,8 @@ export default connect(
         storeData: state
     }),
     dispatch => ({
-        onNodeClickDispatcher: () => {
-            dispatch({ type: 'NODE_CLICK' })
+        onNodeClickDispatcher: (clicked_id) => {
+            dispatch({ type: 'NODE_CLICK', nodeId: clicked_id })
         }
     })
 )(App);

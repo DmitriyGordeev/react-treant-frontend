@@ -1,4 +1,5 @@
 var state = {
+    nodeCounter: 0,
     treeData: {
         chart: {
             container: "#tree-container",
