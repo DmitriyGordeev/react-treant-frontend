@@ -14,7 +14,7 @@ var state = {
                 }
             },
             node: {
-                HTMLclass: "big-commpany"
+                HTMLclass: "bot-state-node"
             }
         },
         nodeStructure: {

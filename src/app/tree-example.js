@@ -11,7 +11,7 @@ var chart_config = {
             }
         },
         node: {
-            HTMLclass: "big-commpany"
+            HTMLclass: "bot-state-node"
         }
     },
     nodeStructure: {
