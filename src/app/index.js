@@ -76,6 +76,9 @@ function reducer(state = ReduxStore, action) {
         updateTreant(newState);
         return newState;
     }
+    else if(action.type === 'GET_INPUTS') {
+        console.log("inputs array: ", action.inputsArray);
+    }
 
     updateTreant(state);
     return state;

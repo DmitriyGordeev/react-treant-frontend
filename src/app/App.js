@@ -13,7 +13,7 @@ class App extends React.Component {
             inputStateObject.push(treantNodes[i].querySelector(".user-message").value);
         }
 
-        console.log(inputStateObject);
+        this.props.onGetInputs(inputStateObject);
     }
 
     render() {
@@ -30,5 +30,9 @@ export default connect(
     state => ({
         storeData: state
     }),
-    dispatch => ({})
+    dispatch => ({
+        onGetInputs: (inputsArray) => {
+            dispatch({ type: 'GET_INPUTS', inputsArray: inputsArray })
+        }
+    })
 )(App);
