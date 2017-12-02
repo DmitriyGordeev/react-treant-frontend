@@ -19,6 +19,11 @@ function cleanTreeViewport(treantContainer, nodeHtmlClass) {
         for(var i = 0; i < treantNodes.length; i++) {
             treantNodes[i].remove();
         }
+        var svgElement = treantContainer.querySelector("svg");
+        if(svgElement != null) {
+            svgElement.remove();
+            console.log("svgElement.remove(): ", "removed");
+        }
     }
 }
 
