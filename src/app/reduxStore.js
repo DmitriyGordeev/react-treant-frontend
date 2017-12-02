@@ -21,8 +21,8 @@ var state = {
             HTMLid: "0",
             innerHTML:
                 "<div class=\"node-input\">" +
-                "  <input type=\"text\" placeholder=\"user message\"/>" +
-                "  <input type=\"text\" placeholder=\"bot answer\"/>" +
+                "  <input class='user-message' type=\"text\" placeholder=\"user message\"/>" +
+                "  <input class='bot-answer' type=\"text\" placeholder=\"bot answer\"/>" +
                 "</div>" +
                 "<i class=\"material-icons node-button\">add</i>",
             connectors: {

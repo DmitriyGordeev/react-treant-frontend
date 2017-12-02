@@ -5,9 +5,24 @@ import TreantContainer from './TreantContainer.js';
 
 class App extends React.Component {
 
+    getNodeValues() {
+        var inputStateObject = [];
+        var treantNodes = document.querySelectorAll(".bot-state-node > .node-input");
+
+        for(var i = 0; i < treantNodes.length; i++)
+        {
+            inputStateObject.push(treantNodes[i].querySelector(".user-message").value);
+        }
+
+        console.log(inputStateObject);
+    }
+
     render() {
         return (
-            <TreantContainer/>
+            <div>
+                <button onClick={this.getNodeValues.bind(this)}>Get Values</button>
+                <TreantContainer/>
+            </div>
         )
     }
 }
