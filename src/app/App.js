@@ -12,13 +12,12 @@ class App extends React.Component {
 
     onTreeContainerClick(event) {
         if(event.target !== null) {
-            if (hasClass(event.target, 'big-commpany')) {
-                var nodeId = event.target.getAttribute("id");
+            if (hasClass(event.target, 'node-button')) {
+                var nodeId = event.target.parentNode.getAttribute("id");
                 this.props.onNodeClickDispatcher(nodeId);
             }
         }
     }
-
 
     render() {
         return (
