@@ -6,6 +6,7 @@ var state = {
             levelSeparation: 45,
             rootOrientation: "WEST",
             nodeAlign: "BOTTOM",
+            scrollbar: "native",
             connectors: {
                 type: "curve",
                 style: {

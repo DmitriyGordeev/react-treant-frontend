@@ -55,8 +55,6 @@ function reducer(state = ReduxStore, action) {
             },
             children: []
         };
-
-        console.log("action.nodeId: ", action.nodeId);
         TreeTraverse.addNode(newState.treeData, action.nodeId, nodeObject);
 
         updateTreant(newState);
