@@ -9,7 +9,7 @@ import './index.css';
 import './tree.css';
 
 import ReduxStore from './reduxStore';
-import TreeTraverse from './tree';
+import TreeTraverse from './TreeTraverse';
 
 /* --------------------------------------------- */
 
