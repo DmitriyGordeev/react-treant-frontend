@@ -58,8 +58,11 @@ function reducer(state = ReduxStore, action) {
         var nodeObject = {
             HTMLid: newState.nodeCounter.toString(),
             innerHTML:
-            "<p class='node-name'>Start</p>" +
-            "<i class=\"material-icons node-button\">add</i>",
+                "<div class=\"node-input\">" +
+                "  <input type=\"text\" placeholder=\"user message\"/>" +
+                "  <input type=\"text\" placeholder=\"bot answer\"/>" +
+                "</div>" +
+                "<i class=\"material-icons node-button\">add</i>",
             connectors: {
                 style: {
                     'stroke': '#bbb',

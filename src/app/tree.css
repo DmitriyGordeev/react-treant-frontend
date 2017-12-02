@@ -1,33 +1,27 @@
 .bot-state-node {
-    font-size: 14px;
+    max-width: 230px;
+    border: 1px solid #9CB5ED;
 }
 
-.bot-state-node {
-    cursor: pointer;
-    padding: 0 2px;
-    min-width: 120px;
-    text-align: center;
-    height: 80px;
-    border: 2px solid #E8E8E3;
-    border-radius: 2px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.5);
-    background: #fff;
+.bot-state-node > .node-input {
+
 }
 
-.bot-state-node .node-name {
-    line-height: 30px;
-    color: #9B9B9B;
+.node-input > input {
+    padding: 10px 15px;
+    display: inline-block;
+    max-width: 70%;
+    border: none;
 }
 
-.bot-state-node:hover .node-name {
-    color: #8B8B8B;
-    text-shadow: 1px 1px rgba(0,0,0,.15);
+.node-input > input:first-of-type {
+    border-bottom: 1px solid #eeeeee;
 }
 
 .node-button {
     position: absolute;
-    right: 0;
-    top: 30%;
+    right: 7px;
+    top: 27px;
 }
 
 
