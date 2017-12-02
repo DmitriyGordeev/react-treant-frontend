@@ -15,6 +15,15 @@ import TreeTraverse from './tree';
 
 function cleanTreeViewport(treantContainer, nodeHtmlClass) {
     if(treantContainer != null) {
+
+        // clean adding of same class on ever redraw:
+        var containerClass = treantContainer.getAttribute("class");
+        if(containerClass != null) {
+            containerClass = containerClass.replace(" Treant Treant-loaded", "");
+            treantContainer.setAttribute("class", containerClass);
+        }
+
+
         var treantNodes = treantContainer.querySelectorAll("." + nodeHtmlClass);
         for(var i = 0; i < treantNodes.length; i++) {
             treantNodes[i].remove();
@@ -22,7 +31,6 @@ function cleanTreeViewport(treantContainer, nodeHtmlClass) {
         var svgElement = treantContainer.querySelector("svg");
         if(svgElement != null) {
             svgElement.remove();
-            console.log("svgElement.remove(): ", "removed");
         }
     }
 }
