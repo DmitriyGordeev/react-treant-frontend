@@ -41,6 +41,8 @@ class TreeTraverse  {
         parentObject.children.push(nodeObject);
         return nodeObject;
     }
+
+    // TODO: static eraseNode(...) {}
 }
 
 export default TreeTraverse;
