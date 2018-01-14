@@ -36,7 +36,6 @@ function cleanTreeViewport(treantContainer, nodeHtmlClass) {
 }
 
 function updateTreant(state) {
-
     var treantContainerSelector = state.treeData.chart.container;
     var treantNodeClass = state.treeData.chart.node.HTMLclass;
     var treantContainer = document.querySelector(treantContainerSelector);
@@ -45,8 +44,6 @@ function updateTreant(state) {
         cleanTreeViewport(treantContainer, treantNodeClass);
         new Treant(state.treeData);
     }
-
-
 }
 
 function reducer(state = ReduxStore, action) {
