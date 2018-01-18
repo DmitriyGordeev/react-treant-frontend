@@ -47,9 +47,8 @@ function updateTreant(state) {
     }
 }
 
-function exp_sendToBackend(state) {
+function updateBackend(state) {
     // TODO: refresh state in user backend SQL (?)
-    alert("index.js->exp_sendToBackend()");
 }
 
 function reducer(state = ReduxStore, action) {
@@ -77,13 +76,24 @@ function reducer(state = ReduxStore, action) {
         TreeTraverse.addNode(newState.treeData, action.nodeId, nodeObject);
 
         updateTreant(newState);
-        exp_sendToBackend(newState);
+        updateBackend(newState);
         return newState;
     }
     else if(action.type === 'GET_INPUTS') {
     }
     else if(action.type === 'NODE_UPDATE') {
-        alert("nodeId = " + action.nodeId + " | inputValue = " + action.value);
+
+        var newState = state;
+        if(action.isUserMessage) {
+            var node_ref = TreeTraverse.findNode(newState.treeData, action.nodeId);
+            // TODO: rewrite innerHTML->(user-message input value) of nodeStructure object (see reduxStore.js)
+        }
+        else {
+            // TODO: rewrite innerHTML->(bot-answer input value) of nodeStructure object (see reduxStore.js)
+        }
+
+        // TODO: send newState to backend
+        updateBackend(newState);
     }
 
     updateTreant(state);

@@ -23,14 +23,18 @@ class TreantContainer extends React.Component {
             else if(hasClass(event.target, 'user-message')) {
                 nodeID = event.target.parentNode.parentNode.getAttribute("id");
 
-                // event.target.onfocus = function() { console.log("User-message onfocus"); };
                 event.target.onblur = function() {
                     var inputValue = this.value;
-                    thisObject.props.onNodeUpdateDispatcher(nodeID, inputValue);
+                    thisObject.props.onNodeUpdateDispatcher(nodeID, inputValue, true);
                 };
             }
             else if(hasClass(event.target, 'bot-answer')) {
                 nodeID = event.target.parentNode.getAttribute("id");
+
+                event.target.onblur = function() {
+                    var inputValue = this.value;
+                    thisObject.props.onNodeUpdateDispatcher(nodeID, inputValue, false);
+                };
             }
         }
     }
@@ -51,8 +55,8 @@ export default connect(
         onNodeAddDispatcher: (clicked_id) => {
             dispatch({ type: 'NODE_CLICK', nodeId: clicked_id })
         },
-        onNodeUpdateDispatcher: (clicked_id, inputValue) => {
-            dispatch({ type: 'NODE_UPDATE', nodeId: clicked_id, value: inputValue })
+        onNodeUpdateDispatcher: (clicked_id, inputValue, isUserMsg) => {
+            dispatch({ type: 'NODE_UPDATE', nodeId: clicked_id, value: inputValue, isUserMessage: isUserMsg })
         }
     })
 )(TreantContainer);
