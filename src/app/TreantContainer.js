@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import jQuery from "jquery"
 
 import './TreantContainer.css';
 
@@ -11,10 +12,25 @@ function hasClass(elem, className) {
 class TreantContainer extends React.Component {
 
     onTreeContainerClick(event) {
+        var thisObject = this;
         if(event.target !== null) {
+
+            var nodeID = -1;
             if (hasClass(event.target, 'node-button')) {
-                var nodeId = event.target.parentNode.getAttribute("id");
-                this.props.onNodeClickDispatcher(nodeId);
+                nodeID = event.target.parentNode.getAttribute("id");
+                this.props.onNodeAddDispatcher(nodeID);
+            }
+            else if(hasClass(event.target, 'user-message')) {
+                nodeID = event.target.parentNode.parentNode.getAttribute("id");
+
+                // event.target.onfocus = function() { console.log("User-message onfocus"); };
+                event.target.onblur = function() {
+                    var inputValue = this.value;
+                    thisObject.props.onNodeUpdateDispatcher(nodeID, inputValue);
+                };
+            }
+            else if(hasClass(event.target, 'bot-answer')) {
+                nodeID = event.target.parentNode.getAttribute("id");
             }
         }
     }
@@ -32,8 +48,11 @@ export default connect(
         storeData: state
     }),
     dispatch => ({
-        onNodeClickDispatcher: (clicked_id) => {
+        onNodeAddDispatcher: (clicked_id) => {
             dispatch({ type: 'NODE_CLICK', nodeId: clicked_id })
+        },
+        onNodeUpdateDispatcher: (clicked_id, inputValue) => {
+            dispatch({ type: 'NODE_UPDATE', nodeId: clicked_id, value: inputValue })
         }
     })
 )(TreantContainer);
