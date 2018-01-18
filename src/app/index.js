@@ -45,8 +45,6 @@ function updateTreant(state) {
         cleanTreeViewport(treantContainer, treantNodeClass);
         new Treant(state.treeData);
     }
-
-
 }
 
 function reducer(state = ReduxStore, action) {
