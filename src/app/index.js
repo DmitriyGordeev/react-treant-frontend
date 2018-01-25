@@ -86,7 +86,12 @@ function reducer(state = ReduxStore, action) {
         var newState = state;
         if(action.isUserMessage) {
             var node_ref = TreeTraverse.findNode(newState.treeData, action.nodeId);
-            // TODO: rewrite innerHTML->(user-message input value) of nodeStructure object (see reduxStore.js)
+            if(node_ref !== null) {
+                var dummy = document.createElement( 'html' );
+                dummy.innerHTML = node_ref.innerHTML;
+                dummy.getElementsByClassName('user-message')[0].setAttribute("value", action.value);
+                node_ref.innerHTML = dummy.innerHTML;
+            }
         }
         else {
             // TODO: rewrite innerHTML->(bot-answer input value) of nodeStructure object (see reduxStore.js)
