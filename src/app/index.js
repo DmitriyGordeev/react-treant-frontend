@@ -84,20 +84,25 @@ function reducer(state = ReduxStore, action) {
     else if(action.type === 'NODE_UPDATE') {
 
         var newState = state;
-        if(action.isUserMessage) {
-            var node_ref = TreeTraverse.findNode(newState.treeData, action.nodeId);
-            if(node_ref !== null) {
-                var dummy = document.createElement( 'html' );
+        var node_ref = TreeTraverse.findNode(newState.treeData, action.nodeId);
+
+        if(node_ref !== null) {
+            if(action.isUserMessage) {
+                var dummy = document.createElement("div");
                 dummy.innerHTML = node_ref.innerHTML;
                 dummy.getElementsByClassName('user-message')[0].setAttribute("value", action.value);
                 node_ref.innerHTML = dummy.innerHTML;
             }
-        }
-        else {
-            // TODO: rewrite innerHTML->(bot-answer input value) of nodeStructure object (see reduxStore.js)
+            else {
+                var dummy = document.createElement("div");
+                dummy.innerHTML = node_ref.innerHTML;
+                dummy.getElementsByClassName('bot-answer')[0].setAttribute("value", action.value);
+                node_ref.innerHTML = dummy.innerHTML;
+            }
         }
 
-        // TODO: send newState to backend
+
+        // TODO: send newState to backend ? or on separate button
         updateBackend(newState);
     }
 

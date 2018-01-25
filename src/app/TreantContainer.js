@@ -29,7 +29,7 @@ class TreantContainer extends React.Component {
                 };
             }
             else if(hasClass(event.target, 'bot-answer')) {
-                nodeID = event.target.parentNode.getAttribute("id");
+                nodeID = event.target.parentNode.parentNode.getAttribute("id");
 
                 event.target.onblur = function() {
                     var inputValue = this.value;
