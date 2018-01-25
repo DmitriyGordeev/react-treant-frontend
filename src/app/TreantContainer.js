@@ -53,7 +53,7 @@ export default connect(
     }),
     dispatch => ({
         onNodeAddDispatcher: (clicked_id) => {
-            dispatch({ type: 'NODE_CLICK', nodeId: clicked_id })
+            dispatch({ type: 'NODE_ADD', nodeId: clicked_id })
         },
         onNodeUpdateDispatcher: (clicked_id, inputValue, isUserMsg) => {
             dispatch({ type: 'NODE_UPDATE', nodeId: clicked_id, value: inputValue, isUserMessage: isUserMsg })

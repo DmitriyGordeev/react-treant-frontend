@@ -53,7 +53,7 @@ function updateBackend(state) {
 
 function reducer(state = ReduxStore, action) {
 
-    if(action.type === 'NODE_CLICK') {
+    if(action.type === 'NODE_ADD') {
         var newState = state;
         newState.nodeCounter++;
 
