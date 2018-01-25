@@ -87,18 +87,17 @@ function reducer(state = ReduxStore, action) {
         var node_ref = TreeTraverse.findNode(newState.treeData, action.nodeId);
 
         if(node_ref !== null) {
+            var dummy = document.createElement("div");
+            dummy.innerHTML = node_ref.innerHTML;
+
             if(action.isUserMessage) {
-                var dummy = document.createElement("div");
-                dummy.innerHTML = node_ref.innerHTML;
                 dummy.getElementsByClassName('user-message')[0].setAttribute("value", action.value);
-                node_ref.innerHTML = dummy.innerHTML;
             }
             else {
-                var dummy = document.createElement("div");
-                dummy.innerHTML = node_ref.innerHTML;
                 dummy.getElementsByClassName('bot-answer')[0].setAttribute("value", action.value);
-                node_ref.innerHTML = dummy.innerHTML;
             }
+
+            node_ref.innerHTML = dummy.innerHTML;
         }
 
 
