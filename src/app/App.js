@@ -5,14 +5,12 @@ import TreantContainer from './TreantContainer.js';
 
 class App extends React.Component {
 
-    getNodeValues() {
-
-    }
+    saveState() { this.props.onSave(); }
 
     render() {
         return (
             <div>
-                <button onClick={this.getNodeValues.bind(this)}>Get Values</button>
+                <button onClick={ this.saveState.bind(this) }>Save</button>
                 <TreantContainer/>
             </div>
         )
@@ -24,8 +22,8 @@ export default connect(
         storeData: state
     }),
     dispatch => ({
-        onGetInputs: (inputsArray) => {
-            dispatch({ type: 'GET_INPUTS', inputsArray: inputsArray })
+        onSave: () => {
+            dispatch({ type: 'SAVE_STATE'  })
         }
     })
 )(App);

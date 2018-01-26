@@ -53,9 +53,10 @@ function updateBackend(state) {
 
 function reducer(state = ReduxStore, action) {
 
+    var next_state = state;
+
     if(action.type === 'NODE_ADD') {
-        var newState = state;
-        newState.nodeCounter++;
+        next_state.nodeCounter++;
 
         var nodeObject = {
             HTMLid: newState.nodeCounter.toString(),
@@ -73,18 +74,15 @@ function reducer(state = ReduxStore, action) {
             },
             children: []
         };
-        TreeTraverse.addNode(newState.treeData, action.nodeId, nodeObject);
-
-        updateTreant(newState);
-        updateBackend(newState);
-        return newState;
+        TreeTraverse.addNode(next_state.treeData, action.nodeId, nodeObject);
+        updateTreant(next_state);
+        return next_state;
     }
     else if(action.type === 'GET_INPUTS') {
     }
     else if(action.type === 'NODE_UPDATE') {
 
-        var newState = state;
-        var node_ref = TreeTraverse.findNode(newState.treeData, action.nodeId);
+        var node_ref = TreeTraverse.findNode(next_state.treeData, action.nodeId);
 
         if(node_ref !== null) {
             var dummy = document.createElement("div");
@@ -99,10 +97,9 @@ function reducer(state = ReduxStore, action) {
 
             node_ref.innerHTML = dummy.innerHTML;
         }
+    }
+    else if(action.type === 'SAVE_STATE') {
 
-
-        // TODO: send newState to backend ? or on separate button
-        updateBackend(newState);
     }
 
     updateTreant(state);
