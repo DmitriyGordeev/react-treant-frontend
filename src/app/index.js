@@ -48,10 +48,6 @@ function updateTreant(state) {
     }
 }
 
-function updateBackend(state) {
-    // TODO: refresh state in user backend SQL (?)
-}
-
 function reducer(state = ReduxStore, action) {
 
     var next_state = state;
@@ -60,7 +56,7 @@ function reducer(state = ReduxStore, action) {
         next_state.nodeCounter++;
 
         var nodeObject = {
-            HTMLid: newState.nodeCounter.toString(),
+            HTMLid: next_state.nodeCounter.toString(),
             innerHTML:
             "<div class=\"node-input\">" +
             "  <input class='user-message' type=\"text\" placeholder=\"user message\"/>" +
@@ -100,7 +96,9 @@ function reducer(state = ReduxStore, action) {
         }
     }
     else if(action.type === 'SAVE_STATE') {
-
+        // TODO: send post to php?
+        var json_string = JSON.stringify(next_state, null, '\t');
+        jQuery.post("mock_backend.php", json_string);
     }
 
     updateTreant(state);
