@@ -12,6 +12,8 @@ import './tree.css';
 import ReduxStore from './reduxStore';
 import TreeTraverse from './TreeTraverse';
 
+import jranslator from './java-translate';
+
 /* --------------------------------------------- */
 
 function cleanTreeViewport(treantContainer, nodeHtmlClass) {
@@ -97,6 +99,9 @@ function reducer(state = ReduxStore, action) {
     else if(action.type === 'SAVE_STATE') {
         var json_string = JSON.stringify(next_state, null, '\t');
         jQuery.post("mock_backend.php", json_string);
+
+        // TODO: translate trean-like json into java-json and send to another php script
+        jranslator(next_state);
     }
 
     updateTreant(state);

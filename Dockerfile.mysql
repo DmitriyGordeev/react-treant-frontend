@@ -1,0 +1,6 @@
+FROM ubuntu:16.04
+RUN apt-get update && apt-get install -y mysql-server
+
+ADD mysql-start.sh /
+RUN chmod +x /mysql-start.sh
+CMD [ "/mysql-start.sh" ]
