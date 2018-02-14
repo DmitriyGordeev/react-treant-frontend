@@ -1,8 +1,9 @@
 node_modules/
 .idea/
 npm-debug.log
-build/
 assets/
 !src/assets/
 src/assets/treant-js/examples/
 tree-boilerplate.js
+php-logs/
+bundle.js

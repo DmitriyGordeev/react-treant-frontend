@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import jQuery from 'jquery';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -48,12 +49,13 @@ function updateTreant(state) {
 
 function reducer(state = ReduxStore, action) {
 
-    if(action.type === 'NODE_CLICK') {
-        var newState = state;
-        newState.nodeCounter++;
+    var next_state = state;
+
+    if(action.type === 'NODE_ADD') {
+        next_state.nodeCounter++;
 
         var nodeObject = {
-            HTMLid: newState.nodeCounter.toString(),
+            HTMLid: next_state.nodeCounter.toString(),
             innerHTML:
             "<div class=\"node-input\">" +
             "  <input class='user-message' type=\"text\" placeholder=\"user message\"/>" +
@@ -68,13 +70,34 @@ function reducer(state = ReduxStore, action) {
             },
             children: []
         };
-        TreeTraverse.addNode(newState.treeData, action.nodeId, nodeObject);
-
-        updateTreant(newState);
-        return newState;
+        TreeTraverse.addNode(next_state.treeData, action.nodeId, nodeObject);
+        updateTreant(next_state);
+        return next_state;
     }
     else if(action.type === 'GET_INPUTS') {
-        console.log("inputs array: ", action.inputsArray);
+    }
+    else if(action.type === 'NODE_UPDATE') {
+
+        var node_ref = TreeTraverse.findNode(next_state.treeData, action.nodeId);
+
+        if(node_ref !== null) {
+            var dummy = document.createElement("div");
+            dummy.innerHTML = node_ref.innerHTML;
+
+            if(action.isUserMessage) {
+                dummy.getElementsByClassName('user-message')[0].setAttribute("value", action.value);
+            }
+            else {
+                dummy.getElementsByClassName('bot-answer')[0].setAttribute("value", action.value);
+            }
+
+            node_ref.innerHTML = dummy.innerHTML;
+        }
+    }
+    else if(action.type === 'SAVE_STATE') {
+        // TODO: send post to php?
+        var json_string = JSON.stringify(next_state, null, '\t');
+        jQuery.post("mock_backend.php", json_string);
     }
 
     updateTreant(state);
