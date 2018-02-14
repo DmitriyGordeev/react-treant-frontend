@@ -1,7 +1,3 @@
 
 
-function translate_java(object) {
-
-}
-
-export default translate_java;
+export default translate_to_java;
