@@ -95,7 +95,6 @@ function reducer(state = ReduxStore, action) {
         }
     }
     else if(action.type === 'SAVE_STATE') {
-        // TODO: send post to php?
         var json_string = JSON.stringify(next_state, null, '\t');
         jQuery.post("mock_backend.php", json_string);
     }
