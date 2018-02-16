@@ -100,6 +100,7 @@ function reducer(state = ReduxStore, action) {
 
         var java_tree = TreeTraverse.javaTranslate(next_state);
         console.log("java_tree", JSON.stringify(java_tree, null, '\t'));
+        jQuery.post("java_json.php", JSON.stringify(java_tree, null, '\t'));
     }
 
     updateTreant(state);
