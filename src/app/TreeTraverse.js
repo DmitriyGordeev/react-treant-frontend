@@ -62,15 +62,19 @@ class TreeTraverse  {
 
         for(var i = 0; i < input_element.children.length; i++) {
             output_element.nodes.push({});
-            javaTranslate_recursive(input_tree, input_element.children[i], output_element.nodes[i]);
+            TreeTraverse.javaTranslate_recursive(input_tree, input_element.children[i], output_element.nodes[i]);
         }
 
     }
 
     static javaTranslate(tree) {
+        var output_tree = {
+            HTMLid: "",
+            nodes: []
+        };
 
-        var output_tree = {};
-
+        TreeTraverse.javaTranslate_recursive(tree, tree.treeData.nodeStructure, output_tree);
+        return output_tree;
     }
 }
 
