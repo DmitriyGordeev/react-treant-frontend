@@ -1,12 +1,14 @@
 import './tree.css';
 import ReduxStore from './reduxStore';
 
-function parseUserMessage() {
+function parse_node(element) {
+    var dummy = document.createElement("div");
+    dummy.innerHTML = element.innerHTML;
 
-}
+    var userMessage = dummy.getElementsByClassName('user-message')[0].getAttribute("value");
+    var botAnswer = dummy.getElementsByClassName('bot-answer')[0].getAttribute("value");
 
-function parseBotAnswer() {
-
+    return {um: userMessage, ba: botAnswer};
 }
 
 
@@ -47,13 +49,10 @@ class TreeTraverse  {
         return nodeObject;
     }
 
-    // TODO: static eraseNode(...) {}
-
-    // TODO: refactor this (iterator ?)
     static javaTranslate_recursive(input_tree, input_element, output_element) {
-
-        // TODO: parse data here
-        output_element.HTMLid = input_element.HTMLid;
+        var node_data = parse_node(input_element);
+        output_element.userMessage = node_data.um;
+        output_element.botAnswer = node_data.ba;
 
         output_element.nodes = [];
         if(input_element.children.length === 0) {

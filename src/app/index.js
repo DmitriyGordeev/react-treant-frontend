@@ -98,7 +98,6 @@ function reducer(state = ReduxStore, action) {
         var json_string = JSON.stringify(next_state, null, '\t');
         jQuery.post("mock_backend.php", json_string);
 
-        // TODO: translate trean-like json into java-json and send to another php script
         var java_tree = TreeTraverse.javaTranslate(next_state);
         console.log("java_tree", java_tree);
     }
