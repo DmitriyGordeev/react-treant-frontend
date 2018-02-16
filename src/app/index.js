@@ -99,7 +99,7 @@ function reducer(state = ReduxStore, action) {
         jQuery.post("mock_backend.php", json_string);
 
         var java_tree = TreeTraverse.javaTranslate(next_state);
-        console.log("java_tree", java_tree);
+        console.log("java_tree", JSON.stringify(java_tree, null, '\t'));
     }
 
     updateTreant(state);

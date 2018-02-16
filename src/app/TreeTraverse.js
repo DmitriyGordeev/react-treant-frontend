@@ -53,6 +53,7 @@ class TreeTraverse  {
         var node_data = parse_node(input_element);
         output_element.userMessage = node_data.um;
         output_element.botAnswer = node_data.ba;
+        output_element.keyboard = [];
 
         output_element.nodes = [];
         if(input_element.children.length === 0) {
@@ -68,8 +69,10 @@ class TreeTraverse  {
 
     static javaTranslate(tree) {
         var output_tree = {
-            HTMLid: "",
-            nodes: []
+            userMessage: "",
+            botAnswer: "",
+            nodes: [],
+            keyboard: []
         };
 
         TreeTraverse.javaTranslate_recursive(tree, tree.treeData.nodeStructure, output_tree);
