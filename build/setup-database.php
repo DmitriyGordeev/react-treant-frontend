@@ -2,8 +2,8 @@
 /* database presets: */
 $db_host = "127.0.0.1";
 $db_user = "root";
-$db_pass = "";
-$db_name = "db_test";
+$db_pass = "root";
+$db_name = "testdb";
 $mysqli = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 if($mysqli == false) {
     echo "Unable to connect to database: mysqli == false";
