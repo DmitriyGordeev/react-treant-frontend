@@ -8,5 +8,6 @@
 
 include_once "setup-database.php";
 $postData = file_get_contents("php://input");
+$postData = base64_encode($postData);
 $query_string = "update users set bot_tree_frontend='".$postData."' where id='1'";
 $mysqli->query($query_string);
