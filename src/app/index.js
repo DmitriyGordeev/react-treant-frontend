@@ -96,12 +96,10 @@ function reducer(state = ReduxStore, action) {
     }
     else if(action.type === 'SAVE_STATE') {
         var json_string = JSON.stringify(next_state);
-        console.log("json_string !!!", json_string);
         jQuery.post("send-botjson-frontend.php", json_string);
 
         var java_tree = TreeTraverse.javaTranslate(next_state);
-        console.log("java_tree", JSON.stringify(java_tree, null, '\t'));
-        jQuery.post("java_json.php", JSON.stringify(java_tree, null, '\t'));
+        jQuery.post("send-botjson-backend.php", JSON.stringify(java_tree));
     }
 
     updateTreant(state);
