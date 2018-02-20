@@ -12,6 +12,7 @@ function hasClass(elem, className) {
 class TreantContainer extends React.Component {
 
     onTreeContainerClick(event) {
+
         var thisObject = this;
         if(event.target !== null) {
 
@@ -23,7 +24,9 @@ class TreantContainer extends React.Component {
             else if(hasClass(event.target, 'user-message')) {
                 nodeID = event.target.parentNode.parentNode.getAttribute("id");
 
+                // sometimes changing focus does not works properly (how to fix?)
                 event.target.onblur = function() {
+                    console.log("user-message: event.target.onblur");
                     var inputValue = this.value;
                     thisObject.props.onNodeUpdateDispatcher(nodeID, inputValue, true);
                 };
@@ -31,7 +34,9 @@ class TreantContainer extends React.Component {
             else if(hasClass(event.target, 'bot-answer')) {
                 nodeID = event.target.parentNode.parentNode.getAttribute("id");
 
+                // sometimes changing focus does not works properly (how to fix?)
                 event.target.onblur = function() {
+                    console.log("bot-answer: event.target.onblur");
                     var inputValue = this.value;
                     thisObject.props.onNodeUpdateDispatcher(nodeID, inputValue, false);
                 };
