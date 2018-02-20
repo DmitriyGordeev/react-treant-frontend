@@ -7,4 +7,4 @@ src/assets/treant-js/examples/
 tree-boilerplate.js
 php-logs/
 bundle.js
-java-bot-tree.json
+build/java-bot-tree.json
